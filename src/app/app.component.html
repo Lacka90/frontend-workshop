@@ -1,13 +1,21 @@
-Parent: {{title}}
-
+<div>
+  Parent Title: {{title}}
+</div>
 <div>
   Date: {{ currentDate$ | async }}
 </div>
+
 <app-child-component [childtitle]="title"
                      [object]="object"
                      (sendMessage)="handleMessage($event)"></app-child-component>
 
-<div>Parent: {{object | json}}</div>
+<div>
+  Interval: {{ intervalCounter$ | async }}
+</div>
+
+
+
+<div>Parent Object: {{object | json}}</div>
 
 <button (click)="mutableChange()">Mutate</button>
 <button (click)="immutableChange()">No Mutate</button>

@@ -5,12 +5,13 @@ import { Subject, interval } from "rxjs";
   providedIn: "root"
 })
 export class TestServiceService {
-  counter$ = interval(1000);
+  date$ = new Subject();
+  intervalCounter$ = interval(1000);
 
   constructor() {}
 
   getCurrentDate() {
     const date = new Date();
-    // this.counter$.next(date);
+    this.date$.next(date);
   }
 }

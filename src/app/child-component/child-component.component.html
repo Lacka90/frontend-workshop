@@ -1,7 +1,9 @@
-<p>child-component works!</p>
+<div class="border">
+  <p>child-component works!</p>
 
-<div>{{ childtitle | uppercase }}</div>
+  <div>Child title: {{ childtitle | uppercase }}</div>
 
-<div>Child: {{ object | json }}</div>
+  <div>Child Object: {{ object | json }}</div>
 
-<button (click)="changeTitleInParent()">Button</button>
+  <button (click)="changeTitleInParent()">Get current date</button>
+</div>

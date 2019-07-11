@@ -14,7 +14,9 @@ export class AppComponent {
   };
 
   title = "This is the course!";
-  currentDate$ = this.testService.counter$.pipe(
+
+  currentDate$ = this.testService.date$;
+  intervalCounter$ = this.testService.intervalCounter$.pipe(
     take(3),
     filter(value => {
       console.log("filter", value, value % 2 === 0);
@@ -30,11 +32,11 @@ export class AppComponent {
   constructor(private testService: TestServiceService) {}
 
   mutableChange() {
-    this.object.value = 4;
+    this.object.value = this.object.value + 1;
   }
 
   immutableChange() {
-    this.object = { value: 4, dog: this.object.dog };
+    this.object = { value: this.object.value + 1, dog: this.object.dog };
   }
 
   handleMessage() {

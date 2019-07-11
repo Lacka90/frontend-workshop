@@ -6,7 +6,6 @@ import {
   EventEmitter,
   ChangeDetectionStrategy
 } from "@angular/core";
-import { TestServiceService } from "../test-service.service";
 
 @Component({
   selector: "app-child-component",
@@ -15,16 +14,14 @@ import { TestServiceService } from "../test-service.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildComponentComponent implements OnInit {
-  @Input() childtitle = "asd";
+  @Input() childtitle = "Initial child title";
   @Input() object;
   @Output() sendMessage: EventEmitter<string> = new EventEmitter();
-
-  constructor(private testService: TestServiceService) {}
 
   ngOnInit() {}
 
   changeTitleInParent() {
-    const message = "asd";
+    const message = "Title changed from child component";
     this.sendMessage.emit(message);
   }
 }
